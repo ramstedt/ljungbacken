@@ -1,9 +1,5 @@
-import Navbar from '@/components/Navbar/Navbar';
+import Layout from '@/components/Layout/layout';
 
 export default function Home() {
-  return (
-    <main>
-      <Navbar />
-    </main>
-  );
+  return <Layout>hej</Layout>;
 }

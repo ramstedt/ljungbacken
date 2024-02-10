@@ -2,10 +2,9 @@ import Link from 'next/link';
 import styled, { createGlobalStyle } from 'styled-components';
 import { IoIosMenu } from 'react-icons/io';
 import { IoCloseSharp } from 'react-icons/io5';
+import Image from 'next/image';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Poppins', sans-serif;
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 767px) {
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -53,7 +52,7 @@ const Wrapper = styled.div`
   max-width: 1300px;
   padding: 0px 30px;
   height: 70px;
-  line-height: 70px;
+  line-height: 1.7rem;
   margin: auto;
   display: flex;
   align-items: center;
@@ -63,27 +62,27 @@ const Wrapper = styled.div`
   }
 `;
 
-//wrapper logo a
 const Logo = styled.div`
   a {
     color: black;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 1.875rem;
+    font-weight: 300;
     text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Audrey-Normal';
   }
 `;
 
 //mobile-item
 const MobileItem = styled.label`
   display: none;
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     display: block;
     color: black;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 300;
     padding-left: 20px;
     cursor: pointer;
-    border-radius: 5px;
     transition: all 0.3s ease;
 
     &hover {
@@ -94,23 +93,28 @@ const MobileItem = styled.label`
 
 //drop-menu
 const DropMenu = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   background: #dee2e7;
   width: 180px;
-  line-height: 45px;
+  line-height: 1.7rem;
   top: 85px;
   opacity: 0;
   visibility: hidden;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transition-delay: 0.2s;
   li a {
-    width: 100%;
-    display: block;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
     padding: 0 0 0 15px;
-    font-weight: 400;
-    border-radius: 0px;
+    font-weight: 300;
+    font-size: 0.9rem !important;
   }
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     position: static;
     opacity: 1;
     top: 65px;
@@ -126,8 +130,7 @@ const DropMenu = styled.ul`
       margin: 0;
     }
     li a {
-      border-radius: 5px;
-      font-size: 18px;
+      font-size: 1.125rem;
     }
   }
 `;
@@ -141,8 +144,9 @@ const MegaBox = styled.div`
   top: 85px;
   opacity: 0;
   visibility: hidden;
+  transition-delay: 0.2s;
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     position: static;
     top: 65px;
     opacity: 1;
@@ -163,14 +167,27 @@ const NavLinks = styled.ul`
   li a {
     color: black;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 300;
     padding: 9px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    position: relative;
   }
+
   li a:hover {
-    background: #aac2da;
+  }
+
+  li a::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px black;
+    transform: scaleX(0);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  li a:hover::after {
+    transform: scaleX(1);
   }
 
   li:hover ${DropMenu}, li:hover ${MegaBox} {
@@ -180,7 +197,7 @@ const NavLinks = styled.ul`
     visibility: visible;
   }
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -200,7 +217,7 @@ const NavLinks = styled.ul`
     li a {
       padding: 0 20px;
       display: block;
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 `;
@@ -212,22 +229,23 @@ const Content = styled.div`
   justify-content: space-between;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     box-shadow: none;
     flex-direction: column;
     padding: 20px 20px 0 20px;
   }
 `;
 const Row = styled.div`
-  width: calc(25% - 30px);
-  line-height: 45px;
+  /* width: calc(25% - 30px); */
+  width: 100%;
+  line-height: 2rem;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     width: 100%;
     margin-bottom: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -240,16 +258,19 @@ const Row = styled.div`
 
 const Header = styled.div`
   color: black;
-  font-size: 20px;
-  font-weight: 500;
-  @media screen and (max-width: 970px) {
-    font-size: 19px;
+  font-size: 1.25rem;
+  font-weight: 300;
+  @media screen and (max-width: 767px) {
+    font-size: 1.188rem;
   }
 `;
 
 const MegaLinks = styled.ul`
   margin-left: -40px;
   border-left: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   li {
     padding: 0 20px;
@@ -259,7 +280,7 @@ const MegaLinks = styled.ul`
     padding: 0px;
     padding: 0 20px;
     color: #565759;
-    font-size: 17px;
+    font-size: 0.875rem;
     display: block;
   }
 
@@ -267,7 +288,7 @@ const MegaLinks = styled.ul`
     color: black;
   }
 
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     border-left: 0px;
     padding-left: 15px;
     li {
@@ -282,10 +303,10 @@ const BtnCloseBtn = styled.label`
   right: 30px;
   top: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     display: block;
   }
 `;
@@ -295,18 +316,23 @@ const MenuBtn = styled.label`
   right: 30px;
   top: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     display: block;
   }
 `;
 
 const DesktopItem = styled.div`
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
+`;
+
+const ImageWrapper = styled.div`
+  width: 200px;
+  height: 300px;
 `;
 
 export default function Navbar() {
@@ -379,7 +405,15 @@ export default function Navbar() {
               <MegaBox className='mega-box'>
                 <Content>
                   <Row>
-                    <img src='img.jpg' alt='' />
+                    <ImageWrapper>
+                      {' '}
+                      <Image
+                        src='/images/wallwithpainting.jpg'
+                        width='100'
+                        height='200'
+                        alt='alt'
+                      />
+                    </ImageWrapper>
                   </Row>
                   <Row>
                     <Header>Kurser</Header>

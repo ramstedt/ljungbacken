@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled, { createGlobalStyle } from 'styled-components';
-import { IoIosMenu } from 'react-icons/io';
-import { IoCloseSharp } from 'react-icons/io5';
+import { TfiClose } from 'react-icons/tfi';
+import { CiMenuBurger } from 'react-icons/ci';
 import Image from 'next/image';
 
 const GlobalStyle = createGlobalStyle`
@@ -18,6 +18,7 @@ svg{
   width: 30px;
   height: 30px;
 }
+
 
 .parentLink{
   color: #000000 !important;
@@ -62,13 +63,14 @@ const Nav = styled.nav`
 const Wrapper = styled.div`
   position: relative;
   max-width: 1300px;
-  padding: 0px 30px;
+  padding: 0px 5px;
   height: 4.3rem;
   line-height: 1.7rem;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   input {
     display: none;
   }
@@ -183,7 +185,7 @@ const NavLinks = styled.ul`
     text-decoration: none;
     font-size: 1rem;
     font-weight: 300;
-    padding: 9px 15px;
+    padding: 5px 15px;
     display: inline-block;
     position: relative;
   }
@@ -310,11 +312,10 @@ const MegaLinks = styled.ul`
   }
 `;
 
-//btn.close-btn
 const BtnCloseBtn = styled.label`
   position: absolute;
-  right: 30px;
-  top: 10px;
+  right: 5px;
+  top: 14px;
   color: white;
   font-size: 1.25rem;
   cursor: pointer;
@@ -326,8 +327,8 @@ const BtnCloseBtn = styled.label`
 
 const MenuBtn = styled.label`
   position: absolute;
-  right: 30px;
-  top: 10px;
+  right: 5px;
+  top: 12px;
   color: white;
   font-size: 1.25rem;
   cursor: pointer;
@@ -351,12 +352,6 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Standalone = styled.li`
-  a {
-    color: #000000 !important;
-  }
-`;
-
 export default function Navbar() {
   return (
     <>
@@ -370,7 +365,7 @@ export default function Navbar() {
           <input type='radio' name='slider' id='close-btn' />
           <NavLinks className='nav-links'>
             <BtnCloseBtn htmlFor='close-btn'>
-              <IoCloseSharp />
+              <TfiClose />
             </BtnCloseBtn>
             <li>
               <Link href='/' className='parentLink'>
@@ -485,7 +480,7 @@ export default function Navbar() {
             </li>
           </NavLinks>
           <MenuBtn htmlFor='menu-btn' className='btn menu-btn'>
-            <IoIosMenu />
+            <CiMenuBurger />
           </MenuBtn>
         </Wrapper>
       </Nav>

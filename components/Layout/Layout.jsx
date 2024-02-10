@@ -1,5 +1,10 @@
 import Navbar from '@/components/Navbar/Navbar';
 import Head from 'next/head';
+import styled from 'styled-components';
+
+const Main = styled.main`
+  padding-top: 68px;
+`;
 
 export default function Layout({ children }) {
   return (
@@ -12,7 +17,7 @@ export default function Layout({ children }) {
         <meta name='robots' content='index, follow' />
       </Head>
       <Navbar />
-      <main>{children}</main>
+      <Main>{children}</Main>
     </>
   );
 }

@@ -371,31 +371,6 @@ export default function Navbar() {
                 </li>
               </DropMenu>
             </li>
-
-            {/* <li>
-        <a href='#' className='desktop-item'>
-          Dropdown Menu
-        </a>
-        <input type='checkbox' id='showDrop' />
-        <label htmlFor='showDrop' className='mobile-item'>
-          Dropdown Menu
-        </label>
-        <ul className='drop-menu'>
-          <li>
-            <a href='#'>Drop menu 1</a>
-          </li>
-          <li>
-            <a href='#'>Drop menu 2</a>
-          </li>
-          <li>
-            <a href='#'>Drop menu 3</a>
-          </li>
-          <li>
-            <a href='#'>Drop menu 4</a>
-          </li>
-        </ul>
-      </li> */}
-
             <li>
               <DesktopItem href='#'>
                 <Link href='#'>Kurser</Link>

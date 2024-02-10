@@ -12,6 +12,17 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Poppins', sans-serif;
 }
 
+svg{
+  color: black;
+  margin-top: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.parentLink{
+  color: #000000 !important;
+}
+
 @media screen and (max-width: 767px) {
     ::-webkit-scrollbar {
       width: 10px;
@@ -32,7 +43,9 @@ const GlobalStyle = createGlobalStyle`
       display: block;
     }
     #showDrop:checked ~ .drop-menu,
-    #showMega:checked ~ .mega-box {
+    #showDrop2:checked ~ .drop-menu,
+    #showMega:checked ~ .mega-box
+     {
       max-height: 100%;
     }
   }
@@ -46,12 +59,11 @@ const Nav = styled.nav`
   background: white;
 `;
 
-//class: wrapper
 const Wrapper = styled.div`
   position: relative;
   max-width: 1300px;
   padding: 0px 30px;
-  height: 70px;
+  height: 4.3rem;
   line-height: 1.7rem;
   margin: auto;
   display: flex;
@@ -64,7 +76,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.div`
   a {
-    color: black;
+    color: #000000;
     font-size: 1.875rem;
     font-weight: 300;
     text-decoration: none;
@@ -78,7 +90,7 @@ const MobileItem = styled.label`
   display: none;
   @media screen and (max-width: 767px) {
     display: block;
-    color: black;
+    color: #000000;
     font-size: 1.25rem;
     font-weight: 300;
     padding-left: 20px;
@@ -91,30 +103,33 @@ const MobileItem = styled.label`
   }
 `;
 
-//drop-menu
 const DropMenu = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   background: #dee2e7;
-  width: 180px;
+  width: 11rem;
   line-height: 1.7rem;
-  top: 85px;
   opacity: 0;
   visibility: hidden;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   transition-delay: 0.2s;
+
+  &.last {
+    right: 0;
+  }
   li a {
     position: relative;
     display: inline-block;
     text-decoration: none;
     padding: 0 0 0 15px;
     font-weight: 300;
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
   }
 
   @media screen and (max-width: 767px) {
+    align-items: flex-start;
     position: static;
     opacity: 1;
     top: 65px;
@@ -135,13 +150,12 @@ const DropMenu = styled.ul`
   }
 `;
 
-//mega-box
 const MegaBox = styled.div`
   position: absolute;
   left: 0;
   width: 100%;
   padding: 0 30px;
-  top: 85px;
+  top: 4rem;
   opacity: 0;
   visibility: hidden;
   transition-delay: 0.2s;
@@ -165,13 +179,12 @@ const NavLinks = styled.ul`
   }
 
   li a {
-    color: black;
+    color: #565759;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 300;
     padding: 9px 15px;
     display: inline-block;
-    text-align: center;
     position: relative;
   }
 
@@ -192,7 +205,7 @@ const NavLinks = styled.ul`
 
   li:hover ${DropMenu}, li:hover ${MegaBox} {
     transition: all 0.3s ease;
-    top: 70px;
+    top: 4rem;
     opacity: 1;
     visibility: visible;
   }
@@ -212,7 +225,7 @@ const NavLinks = styled.ul`
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
     transition: all 0.3s ease;
     li {
-      margin: 15px 10px;
+      margin: 0.4rem 0.3rem;
     }
     li a {
       padding: 0 20px;
@@ -232,7 +245,7 @@ const Content = styled.div`
   @media screen and (max-width: 767px) {
     box-shadow: none;
     flex-direction: column;
-    padding: 20px 20px 0 20px;
+    padding: 0 20px 0 20px;
   }
 `;
 const Row = styled.div`
@@ -285,7 +298,7 @@ const MegaLinks = styled.ul`
   }
 
   li a:hover {
-    color: black;
+    color: #000000;
   }
 
   @media screen and (max-width: 767px) {
@@ -333,6 +346,15 @@ const DesktopItem = styled.div`
 const ImageWrapper = styled.div`
   width: 200px;
   height: 300px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`;
+
+const Standalone = styled.li`
+  a {
+    color: #000000 !important;
+  }
 `;
 
 export default function Navbar() {
@@ -342,7 +364,7 @@ export default function Navbar() {
       <Nav>
         <Wrapper>
           <Logo>
-            <Link href='#'>Ljungbackens</Link>
+            <Link href='/'>Ljungbackens</Link>
           </Logo>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
@@ -351,14 +373,20 @@ export default function Navbar() {
               <IoCloseSharp />
             </BtnCloseBtn>
             <li>
-              <Link href='/'>Om Ljungbacken</Link>
+              <Link href='/' className='parentLink'>
+                Om Ljungbacken
+              </Link>
             </li>
             <li>
               <DesktopItem>
-                <Link href='#'>Galleri</Link>
+                <Link href='#' className='parentLink'>
+                  Galleri
+                </Link>
               </DesktopItem>
               <input type='checkbox' id='showDrop' />
-              <MobileItem htmlFor='showDrop'>Galleri</MobileItem>
+              <MobileItem htmlFor='showDrop' className='parentLink'>
+                Galleri
+              </MobileItem>
               <DropMenu className='drop-menu'>
                 <li>
                   <Link href='#'>Information</Link>
@@ -373,15 +401,18 @@ export default function Navbar() {
             </li>
             <li>
               <DesktopItem href='#'>
-                <Link href='#'>Kurser</Link>
+                <Link href='#' className='parentLink'>
+                  Kurser
+                </Link>
               </DesktopItem>
               <input type='checkbox' id='showMega' />
-              <MobileItem htmlFor='showMega'>Kurser</MobileItem>
+              <MobileItem htmlFor='showMega' className='parentLink'>
+                Kurser
+              </MobileItem>
               <MegaBox className='mega-box'>
                 <Content>
                   <Row>
                     <ImageWrapper>
-                      {' '}
                       <Image
                         src='/images/wallwithpainting.jpg'
                         width='100'
@@ -391,7 +422,7 @@ export default function Navbar() {
                     </ImageWrapper>
                   </Row>
                   <Row>
-                    <Header>Kurser</Header>
+                    <Header>Kurskatalog</Header>
                     <MegaLinks>
                       <li>
                         <Link href='#'>Konst Workshop</Link>
@@ -431,9 +462,16 @@ export default function Navbar() {
               </MegaBox>
             </li>
             <li>
-              <input type='checkbox' id='showDrop' />
-              <MobileItem htmlFor='showDrop'>Hyr Lokal</MobileItem>
-              <DropMenu className='drop-menu'>
+              <DesktopItem>
+                <Link href='#' className='parentLink'>
+                  Hyr lokal
+                </Link>
+              </DesktopItem>
+              <input type='checkbox' id='showDrop2' />
+              <MobileItem htmlFor='showDrop2' className='parentLink'>
+                Hyr Lokal
+              </MobileItem>
+              <DropMenu className='drop-menu last'>
                 <li>
                   <Link href='#'>Vad Ingår</Link>
                 </li>

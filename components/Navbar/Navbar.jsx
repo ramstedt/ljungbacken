@@ -359,7 +359,7 @@ export default function Navbar() {
       <Nav>
         <Wrapper>
           <Logo>
-            <Link href='/'>Ljungbackens</Link>
+            <Link href='/'>Ljungbacken</Link>
           </Logo>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />

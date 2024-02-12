@@ -1,15 +1,16 @@
-import Navbar from '@/components/Navbar/Navbar';
+import Navbar from '@/src/components/Navbar/Navbar';
 import Head from 'next/head';
 import styled from 'styled-components';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/src/components/Footer/Footer';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100lvh;
+  min-height: 100lvh;
 `;
 
 const Main = styled.main`
+  flex: 1 0 auto;
   padding-top: 68px;
 `;
 

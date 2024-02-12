@@ -34,5 +34,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-components/Navbar/test.html
-components/Navbar/style.css
+src/components/Navbar/test.html

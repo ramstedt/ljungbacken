@@ -87,7 +87,6 @@ const Logo = styled.div`
   }
 `;
 
-//mobile-item
 const MobileItem = styled.label`
   display: none;
   @media screen and (max-width: 767px) {

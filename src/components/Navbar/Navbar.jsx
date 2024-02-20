@@ -189,10 +189,7 @@ const NavLinks = styled.ul`
     position: relative;
   }
 
-  li a:hover {
-  }
-
-  li a::after {
+  /* li a::after {
     display: block;
     content: '';
     border-bottom: solid 1px black;
@@ -202,7 +199,7 @@ const NavLinks = styled.ul`
 
   li a:hover::after {
     transform: scaleX(1);
-  }
+  } */
 
   li:hover ${DropMenu}, li:hover ${MegaBox} {
     transition: all 0.3s ease;

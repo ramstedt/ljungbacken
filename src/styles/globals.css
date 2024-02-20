@@ -40,4 +40,21 @@ button {
 
 a {
   text-decoration: none;
+  font-weight: 400;
+}
+
+a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px currentColor;
+  transform: scaleX(0);
+  transition: transform 0.4s ease-in-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+.noHover::after {
+  border: none;
 }

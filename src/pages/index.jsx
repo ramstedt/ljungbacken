@@ -4,24 +4,8 @@ import StaffCard from '../components/StaffCard/StaffCard';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import CourseCard from '../components/CourseCard/CourseCard';
-import styled from 'styled-components';
 import imageUrlBuilder from '@sanity/image-url';
-
-const CoursesWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  @media screen and (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(3, 225px);
-    gap: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (min-width: 1440px) {
-    grid-template-columns: repeat(4, 225px);
-  }
-`;
+import CoursesWrapper from '../components/CoursesWrapper/CoursesWrapper';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -53,7 +37,78 @@ export default function Home() {
 
   return (
     <Layout>
-      <Hero />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
+        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
+        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
+        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
+        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
+        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
+        mollitia expedita quam?
+      </p>
       <CoursesWrapper>
         {courses.map((course, key) => {
           {

@@ -2,6 +2,7 @@ import Navbar from '@/src/components/Navbar/Navbar';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from '@/src/components/Footer/Footer';
+import Hero from '../Hero/Hero';
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ export default function Layout({ children }) {
         <meta name='robots' content='index, follow' />
       </Head>
       <Navbar />
+      <Hero />
       <Main>{children}</Main>
       <Footer />
     </Wrapper>

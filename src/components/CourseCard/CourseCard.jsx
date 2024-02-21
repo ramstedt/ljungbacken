@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Wrapper = styled.a`
+const Wrapper = styled.button`
   width: 260px;
   height: 125px;
   display: grid;
@@ -13,25 +13,28 @@ const Wrapper = styled.a`
   overflow: hidden;
   justify-items: end;
   margin: auto;
-  @media screen and (min-width: 425px) {
-    width: 360px;
-    height: 225px;
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
+    }
   }
-  @media screen and (min-width: 2560px) {
-    width: 460px;
-    height: 325px;
+
+  @media screen and (min-width: 425px) {
+    width: 225px;
+    height: 118px;
   }
 `;
 
 const ImageWrapper = styled.div`
   grid-area: 1 / 1 / 3 / 2;
-  background: black;
+  overflow: hidden;
 `;
 
 const Text = styled.div`
   grid-area: 2 / 1 / 3 / 2;
   padding: 1rem;
-  z-index: 100;
   display: flex;
   align-items: flex-end;
   h3 {
@@ -39,21 +42,25 @@ const Text = styled.div`
     padding: 0.5rem;
     border-radius: 5%;
     background: #00000062;
+    z-index: 100;
   }
   h3 a {
     color: white;
   }
 `;
-export default function CourseCard() {
+export default function CourseCard({ name, image, alt, slug }) {
+  const handleClick = () => {
+    window.location.href = `kurser/${slug}`;
+  };
   return (
-    <Wrapper href='' className='noHover'>
+    <Wrapper onClick={handleClick} className='noHover'>
       <ImageWrapper>
-        <Image src='/images/hero.jpg' alt='' layout='fill' />
+        {image ? (
+          <Image src={image} alt={alt} layout='fill' objectFit='cover' />
+        ) : null}
       </ImageWrapper>
       <Text>
-        <h3>
-          <Link href=''>Kursnamn</Link>
-        </h3>
+        <h3>{slug ? <Link href={`kurser/${slug}`}>{name}</Link> : null}</h3>
       </Text>
     </Wrapper>
   );

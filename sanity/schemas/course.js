@@ -47,8 +47,8 @@ export const course = {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'bio',
-      title: 'Bio',
+      name: 'description',
+      title: 'Beskrivning',
       type: 'array',
       validation: (Rule) => Rule.required(),
       of: [

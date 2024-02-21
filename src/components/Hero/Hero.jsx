@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import styled from 'styled-components';
+import Image1 from 'next/legacy/image';
 
 const Wrapper = styled.div`
   position: relative;
@@ -15,13 +15,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const HeroImage = styled(Image)`
+const HeroImage = styled(Image1)`
   object-fit: cover;
 `;
 export default function Hero() {
   return (
     <Wrapper>
-      <HeroImage src='/images/hero.jpg' alt='Description' layout='fill' />
+      <HeroImage
+        src='/images/hero.jpg'
+        alt='Description'
+        layout='fill'
+        priority={true}
+      />
     </Wrapper>
   );
 }

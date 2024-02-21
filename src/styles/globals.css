@@ -32,10 +32,9 @@ h1 {
 
 button {
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0;
   margin: 0;
-  text-align: left;
-  background: red;
+  cursor: pointer;
 }
 
 a {

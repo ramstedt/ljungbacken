@@ -2,44 +2,47 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  width: 250px;
-  height: 250px;
-  border-style: solid;
+const Wrapper = styled.a`
+  width: 100px;
+  height: 210px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
 `;
 
 const ImageWrapper = styled.div`
-  width: 150px;
-  height: 150px;
-  background: green;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
+  position: relative;
+  overflow: hidden;
 `;
 const Details = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  color: black;
+  &:hover {
+    color: grey;
+  }
 `;
-export default function StaffCard() {
+export default function StaffCard({ image, alt, name, title, slug }) {
   return (
-    <Wrapper>
-      <ImageWrapper></ImageWrapper>
+    <Wrapper href={`medarbetare/${slug}`}>
+      <ImageWrapper>
+        <Image src={image} alt={alt} layout='fill' />
+      </ImageWrapper>
       <Details>
-        <div>
-          <h3>Namn</h3>
-
-          <h4>Titel</h4>
-        </div>
-        <div>
-          <button>
-            <Link href=''>Läs mer</Link>
-          </button>
-        </div>
+        <h3>{name}</h3>
+        <h4>{title}</h4>
       </Details>
     </Wrapper>
   );

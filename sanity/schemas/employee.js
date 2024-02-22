@@ -10,6 +10,12 @@ export const employee = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'jobtitle',
+      title: 'Titel',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',

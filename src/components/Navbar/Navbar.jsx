@@ -57,7 +57,7 @@ svg{
 
 const Nav = styled.nav`
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   width: 100%;
   background: white;
 `;
@@ -442,27 +442,6 @@ export default function Navbar() {
                               </li>
                             );
                           })}
-                      {/* <li>
-                        <Link href='#'>Konst Workshop</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>Vinprovning</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>Cava & Kavla</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>Kroki</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>Oljmåleri</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>Kol Teckning</Link>
-                      </li>
-                      <li>
-                        <Link href='#'>ART TALK & WINE</Link>
-                      </li> */}
                     </MegaLinks>
                   </Row>
                   <Row>

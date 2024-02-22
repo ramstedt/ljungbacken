@@ -5,6 +5,16 @@ import { useState, useEffect } from 'react';
 import CourseCard from '../components/CourseCard/CourseCard';
 import imageUrlBuilder from '@sanity/image-url';
 import CoursesWrapper from '../components/CoursesWrapper/CoursesWrapper';
+import SanityBlockContent from '@sanity/block-content-to-react';
+import styled from 'styled-components';
+import Header from '../components/_atoms/Header/Header';
+const StaffWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+`;
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -14,6 +24,7 @@ function urlFor(source) {
 export default function Home() {
   const [staff, setStaff] = useState(null);
   const [courses, setCourses] = useState(null);
+  const [home, setHome] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,10 +32,12 @@ export default function Home() {
     Promise.all([
       client.fetch(`*[_type == "employee"]`),
       client.fetch(`*[_type == "course"]`),
+      client.fetch(`*[_type == "home"]`),
     ])
-      .then(([staffData, coursesData]) => {
+      .then(([staffData, coursesData, homeData]) => {
         setStaff(staffData);
         setCourses(coursesData);
+        setHome(homeData[0]);
         setLoading(false);
       })
       .catch((error) => {
@@ -36,78 +49,13 @@ export default function Home() {
 
   return (
     <Layout>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis atque
-        velit. Voluptas facilis tempora alias ab fugit, aliquam provident
-        sapiente, architecto ipsam recusandae officia pariatur eligendi. Iusto
-        veniam nisi quisquam labore, adipisci fugit esse voluptates ad quis
-        fuga, natus, earum tempora voluptatem saepe ipsum ducimus facere nostrum
-        praesentium hic mollitia quia blanditiis! Aliquam minima, dolor quisquam
-        mollitia expedita quam?
-      </p>
+      <Header>
+        <h1>{home.title}</h1>
+      </Header>
+      <SanityBlockContent blocks={home && home.text} />
+      <Header>
+        <h2>Kurskatalog</h2>
+      </Header>
       <CoursesWrapper>
         {courses.map((course, key) => {
           return (
@@ -121,9 +69,23 @@ export default function Home() {
           );
         })}
       </CoursesWrapper>
-      {/* {staff.map((employee, key) => {
-        return <StaffCard key={key} />;
-      })} */}
+      <Header>
+        <h2>Vi som jobbar här</h2>
+      </Header>
+      <StaffWrapper>
+        {staff.map((employee, key) => {
+          return (
+            <StaffCard
+              key={key}
+              image={employee.image && urlFor(employee.image).url()}
+              alt={employee.image.alt}
+              name={employee.name}
+              title={employee.jobtitle}
+              slug={employee.slug.current}
+            />
+          );
+        })}
+      </StaffWrapper>
     </Layout>
   );
 }

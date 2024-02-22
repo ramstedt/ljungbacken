@@ -3,6 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';
 import { CiMenuBurger } from 'react-icons/ci';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { client } from '@/sanity/lib/client';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -349,6 +351,20 @@ const ImageWrapper = styled.div`
 `;
 
 export default function Navbar() {
+  const [courses, setCourses] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    Promise.all([client.fetch(`*[_type == "course"]`)])
+      .then(([coursesData]) => {
+        setCourses(coursesData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
   return (
     <>
       <GlobalStyle />
@@ -415,7 +431,18 @@ export default function Navbar() {
                   <Row>
                     <Header>Kurskatalog</Header>
                     <MegaLinks>
-                      <li>
+                      {isLoading
+                        ? null
+                        : courses.map((course, key) => {
+                            return (
+                              <li key={key}>
+                                <Link href={course.slug.current}>
+                                  {course.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                      {/* <li>
                         <Link href='#'>Konst Workshop</Link>
                       </li>
                       <li>
@@ -435,7 +462,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link href='#'>ART TALK & WINE</Link>
-                      </li>
+                      </li> */}
                     </MegaLinks>
                   </Row>
                   <Row>

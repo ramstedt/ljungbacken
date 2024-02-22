@@ -1,4 +1,3 @@
-import Hero from '@/src/components/Hero/Hero';
 import Layout from '@/src/components/Layout/Layout';
 import StaffCard from '../components/StaffCard/StaffCard';
 import { client } from '@/sanity/lib/client';
@@ -111,9 +110,6 @@ export default function Home() {
       </p>
       <CoursesWrapper>
         {courses.map((course, key) => {
-          {
-            console.log(course.slug.current);
-          }
           return (
             <CourseCard
               key={key}

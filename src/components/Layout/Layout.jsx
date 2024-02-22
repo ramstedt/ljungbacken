@@ -17,6 +17,8 @@ const Main = styled.main`
   flex-direction: column;
   margin: auto;
   gap: 1rem;
+  padding: 1rem;
+  max-width: 1024px;
 `;
 
 export default function Layout({ children }) {

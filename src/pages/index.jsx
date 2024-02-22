@@ -1,13 +1,13 @@
 import Layout from '@/src/components/Layout/Layout';
-import StaffCard from '../components/StaffCard/StaffCard';
+import StaffCard from '@/src/components/StaffCard/StaffCard';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
-import CourseCard from '../components/CourseCard/CourseCard';
+import CourseCard from '@/src/components/CourseCard/CourseCard';
 import imageUrlBuilder from '@sanity/image-url';
-import CoursesWrapper from '../components/CoursesWrapper/CoursesWrapper';
+import CoursesWrapper from '@/src/components/CoursesWrapper/CoursesWrapper';
 import SanityBlockContent from '@sanity/block-content-to-react';
 import styled from 'styled-components';
-import Header from '../components/_atoms/Header/Header';
+import Header from '@/src/components/_atoms/Header/Header';
 const StaffWrapper = styled.div`
   display: flex;
   gap: 1rem;

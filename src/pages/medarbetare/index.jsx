@@ -1,5 +1,5 @@
 import Layout from '@/src/components/Layout/Layout';
-import StaffCard from '../components/StaffCard/StaffCard';
+import StaffCard from '@/src/components/StaffCard/StaffCard';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';

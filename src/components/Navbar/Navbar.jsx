@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 svg{
-  color: black;
+  color: #1f1f1f;
   margin-top: 0;
   width: 30px;
   height: 30px;
@@ -23,7 +23,7 @@ svg{
 
 
 .parentLink{
-  color: #000000 !important;
+  color: #1f1f1f !important; 
 }
 
 @media screen and (max-width: 767px) {
@@ -59,7 +59,7 @@ const Nav = styled.nav`
   position: fixed;
   z-index: 999;
   width: 100%;
-  background: white;
+  background: #fdfffb;
 `;
 
 const Wrapper = styled.div`
@@ -78,22 +78,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  a {
-    color: #000000;
-    font-size: 1.875rem;
-    font-weight: 300;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Audrey-Normal';
-  }
-`;
-
 const MobileItem = styled.label`
   display: none;
   @media screen and (max-width: 767px) {
     display: block;
-    color: #000000;
+    color: #1f1f1f;
     font-size: 1.25rem;
     font-weight: 300;
     padding-left: 20px;
@@ -191,18 +180,6 @@ const NavLinks = styled.ul`
     position: relative;
   }
 
-  /* li a::after {
-    display: block;
-    content: '';
-    border-bottom: solid 1px black;
-    transform: scaleX(0);
-    transition: transform 0.4s ease-in-out;
-  }
-
-  li a:hover::after {
-    transform: scaleX(1);
-  } */
-
   li:hover ${DropMenu}, li:hover ${MegaBox} {
     transition: all 0.3s ease;
     top: 4rem;
@@ -270,7 +247,7 @@ const Row = styled.div`
 `;
 
 const Header = styled.div`
-  color: black;
+  color: #1f1f1f;
   font-size: 1.25rem;
   font-weight: 300;
   @media screen and (max-width: 767px) {
@@ -298,7 +275,7 @@ const MegaLinks = styled.ul`
   }
 
   li a:hover {
-    color: #000000;
+    color: #1f1f1f;
   }
 
   @media screen and (max-width: 767px) {
@@ -314,7 +291,7 @@ const BtnCloseBtn = styled.label`
   position: absolute;
   right: 5px;
   top: 14px;
-  color: white;
+  color: #efefef;
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
@@ -327,7 +304,7 @@ const MenuBtn = styled.label`
   position: absolute;
   right: 5px;
   top: 12px;
-  color: white;
+  color: #efefef;
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
@@ -370,9 +347,9 @@ export default function Navbar() {
       <GlobalStyle />
       <Nav>
         <Wrapper>
-          <Logo>
+          <div className='logo'>
             <Link href='/'>Ljungbacken</Link>
-          </Logo>
+          </div>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
           <NavLinks className='nav-links'>

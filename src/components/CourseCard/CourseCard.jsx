@@ -45,7 +45,7 @@ const Text = styled.div`
     z-index: 100;
   }
   h3 a {
-    color: white;
+    color: #fdfffb;
   }
 `;
 export default function CourseCard({ name, image, alt, slug }) {

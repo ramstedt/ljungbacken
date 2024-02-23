@@ -12,12 +12,11 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   flex: 1 0 auto;
-  padding-top: 68px;
   display: flex;
   flex-direction: column;
   margin: auto;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   max-width: 1024px;
 `;
 

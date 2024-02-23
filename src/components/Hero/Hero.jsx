@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image1 from 'next/legacy/image';
-import { motion } from 'framer-motion';
 
 const Wrapper = styled.div`
   position: relative;
@@ -20,7 +19,7 @@ const HeroImage = styled(Image1)`
   grid-area: 1 / 1 / 3 / 2;
 `;
 
-export default function Hero({ header }) {
+export default function Hero() {
   return (
     <Wrapper>
       <HeroImage

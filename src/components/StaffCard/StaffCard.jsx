@@ -29,9 +29,9 @@ const Details = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: #1f1f1f;
   &:hover {
-    color: grey;
+    color: #645757;
   }
   div {
     font-size: 0.7rem;

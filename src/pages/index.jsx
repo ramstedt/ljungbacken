@@ -13,7 +13,11 @@ const StaffWrapper = styled.div`
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-evenly;
+  }
 `;
 
 const builder = imageUrlBuilder(client);

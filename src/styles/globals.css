@@ -43,6 +43,13 @@ h1 {
 h2 {
   letter-spacing: 0.05rem;
 }
+
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+}
 button {
   border: none;
   padding: 0;

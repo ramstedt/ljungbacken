@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.a`
   width: 100px;
-  height: 210px;
+  height: 190px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,9 @@ const Details = styled.div`
   &:hover {
     color: grey;
   }
+  div {
+    font-size: 0.7rem;
+  }
 `;
 export default function StaffCard({ image, alt, name, title, slug }) {
   return (
@@ -42,7 +45,7 @@ export default function StaffCard({ image, alt, name, title, slug }) {
       </ImageWrapper>
       <Details>
         <h3>{name}</h3>
-        <h4>{title}</h4>
+        <div>{title}</div>
       </Details>
     </Wrapper>
   );

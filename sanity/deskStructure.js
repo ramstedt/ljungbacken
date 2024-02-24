@@ -1,6 +1,7 @@
 import { BsPersonFill } from 'react-icons/bs';
 import { IoMdSchool, IoMdInformationCircle } from 'react-icons/io';
 import { PiHouseLineFill } from 'react-icons/pi';
+import { MdFilterFrames } from 'react-icons/md';
 
 export const myStructure = (S) =>
   S.list()
@@ -24,6 +25,30 @@ export const myStructure = (S) =>
                 .title('Om Ljungbacken')
                 .child(S.document().schemaType('about').documentId('about'))
                 .icon(IoMdInformationCircle),
+              S.listItem()
+                .title('Galleri')
+                .child(
+                  S.list()
+                    .title('Galleri')
+                    .items([
+                      S.listItem()
+                        .title('Information')
+                        .child(
+                          S.document()
+                            .schemaType('information')
+                            .documentId('information')
+                        )
+                        .icon(IoMdInformationCircle),
+                      S.listItem()
+                        .title('Utställningar')
+                        .child(
+                          S.document()
+                            .schemaType('exhibitions')
+                            .documentId('exhibitions')
+                        )
+                        .icon(MdFilterFrames),
+                    ])
+                ),
             ])
         ),
     ]);

@@ -380,7 +380,7 @@ export default function Navbar() {
               </MobileItem>
               <DropMenu className='drop-menu'>
                 <li>
-                  <Link href='#'>Information</Link>
+                  <Link href='/galleri/information'>Information</Link>
                 </li>
                 <li>
                   <Link href='#'>Utställningar</Link>

@@ -10,7 +10,7 @@ const Content = styled.div`
   gap: 1rem;
   @media screen and (min-width: 768px) {
     margin: 1rem 0 1rem 0;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
   }
 `;
@@ -40,14 +40,14 @@ export default function ContentBasic({ title, text, image, alt }) {
         <h1>{title}</h1>
       </Header>
       <Content>
+        <Text>
+          <SanityBlockContent blocks={text} />
+        </Text>
         {image ? (
           <ImageWrapper>
             <Image src={image} alt={alt} layout='fill' />
           </ImageWrapper>
         ) : null}
-        <Text>
-          <SanityBlockContent blocks={text} />
-        </Text>
       </Content>
     </Wrapper>
   );

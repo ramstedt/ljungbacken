@@ -30,6 +30,7 @@ export default function Courses() {
 
   return (
     <Layout>
+      <h1>Kurser</h1>
       <CoursesWrapper>
         {courses.map((course, key) => {
           return (

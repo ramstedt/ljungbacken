@@ -1,23 +1,13 @@
-export const course = {
-  name: 'course',
-  title: 'Kurs',
+export const instructors = {
+  name: 'instructors',
+  title: 'Instruktörer',
   type: 'document',
   fields: [
     {
-      name: 'name',
-      title: 'Namn',
+      name: 'title',
+      title: 'Titel',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      validation: (Rule) => Rule.required(),
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
     },
     {
       name: 'image',
@@ -25,7 +15,6 @@ export const course = {
       type: 'image',
       description:
         'Försök hålla filen så liten som möjligt för snabbare laddning. Bra sida för optimering av bilder: https://squoosh.app',
-      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -41,37 +30,8 @@ export const course = {
       ],
     },
     {
-      name: 'startDate',
-      title: 'Startdatum',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'seats',
-      title: 'Antal platser (total)',
-      type: 'number',
-      description: 'Endast siffror',
-    },
-    {
-      name: 'freeSeats',
-      title: 'Antalet lediga platser',
-      type: 'number',
-      description: 'Endast siffror',
-    },
-    {
-      name: 'price',
-      title: 'Pris',
-      type: 'number',
-      description: 'Endast siffror',
-    },
-    {
-      name: 'instructor',
-      title: 'Instruktör',
-      type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Beskrivning',
+      name: 'text',
+      title: 'Text',
       type: 'array',
       validation: (Rule) => Rule.required(),
       of: [

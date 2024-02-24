@@ -432,7 +432,7 @@ export default function Navbar() {
                     <Header>Information</Header>
                     <MegaLinks>
                       <li>
-                        <Link href='/instruktorer'>Instruktörer</Link>
+                        <Link href='/kurser/instruktorer'>Instruktörer</Link>
                       </li>
                       <li>
                         <Link href='/kurser/boka'>Boka</Link>

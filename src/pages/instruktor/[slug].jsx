@@ -63,23 +63,25 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-export default function CoursePage() {
+export default function InstructorPage() {
   const router = useRouter();
   const { slug } = router.query;
 
   const [isLoading, setIsLoading] = useState(true);
-  const [courses, setCourses] = useState(null);
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [instructor, setInstructor] = useState(null);
 
   useEffect(() => {
     if (slug) {
       setIsLoading(true);
-      Promise.all([client.fetch(`*[_type == "course"]`)])
-        .then(([coursesData]) => {
-          if (!coursesData) {
+      const query = `*[_type == "employee" && slug.current == $slug][0]`;
+      client
+        .fetch(query, { slug: slug })
+        .then((data) => {
+          if (!data) {
             router.replace('/404');
           } else {
-            setCourses(coursesData);
+            setInstructor(data);
+            setIsLoading(false);
           }
         })
         .catch((error) => {
@@ -89,78 +91,24 @@ export default function CoursePage() {
     }
   }, [slug, router]);
 
-  useEffect(() => {
-    if (courses) {
-      courses.forEach((course) => {
-        if (course.slug.current === slug) {
-          setSelectedCourse(course);
-        }
-      });
-      setIsLoading(false);
-    }
-  }, [courses, slug]);
-
   if (isLoading) return <div></div>;
   return (
     <Layout>
       <Wrapper>
         <Header>
           <Content>
-            <h1>{selectedCourse && selectedCourse.name}</h1>
-            <div>
-              <div>
-                <small>
-                  Instruktör: {selectedCourse && selectedCourse.instructor}
-                </small>
-              </div>
-              <div>
-                <small>
-                  Start: {selectedCourse && selectedCourse.startDate}
-                </small>
-              </div>
-              <div>
-                <small>
-                  {selectedCourse.freeSeats === 0
-                    ? 'Fullbokat'
-                    : ` Antal platser: ${selectedCourse.seats} (
-                  ${selectedCourse.freeSeats} lediga)`}
-                </small>
-              </div>
-            </div>
-            <div>
-              <SanityBlockContent
-                blocks={selectedCourse && selectedCourse.description}
-              />
-            </div>
-            {selectedCourse.freeSeats === 0 ? null : (
-              <Button href='/kurser/boka'>Boka kurs</Button>
-            )}
+            <h1>{instructor && instructor.name}</h1>
+            <SanityBlockContent blocks={instructor && instructor.bio} />
           </Content>
         </Header>
         <ImageWrapper>
           <Image
-            src={selectedCourse.image && urlFor(selectedCourse.image).url()}
-            alt={selectedCourse.image.alt}
+            src={instructor.image && urlFor(instructor.image).url()}
+            alt={instructor.image.alt}
             layout='fill'
           />
         </ImageWrapper>
       </Wrapper>
-      <hr />
-      <h2>Kurser</h2>
-      <CoursesWrapper>
-        {courses &&
-          courses.map((course, key) => {
-            return (
-              <CourseCard
-                key={key}
-                name={course.name}
-                slug={course.slug.current}
-                image={course.image && urlFor(course.image).url()}
-                alt={course.image.alt}
-              />
-            );
-          })}
-      </CoursesWrapper>
     </Layout>
   );
 }

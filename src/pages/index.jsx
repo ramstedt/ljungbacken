@@ -49,8 +49,6 @@ export default function Home() {
       });
   }, []);
 
-  if (isLoading) return <div></div>;
-
   return (
     <Layout>
       {isLoading ? null : (

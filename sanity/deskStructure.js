@@ -2,6 +2,7 @@ import { BsPersonFill } from 'react-icons/bs';
 import { IoMdSchool, IoMdInformationCircle } from 'react-icons/io';
 import { PiHouseLineFill } from 'react-icons/pi';
 import { MdFilterFrames } from 'react-icons/md';
+import { IoPeopleCircleSharp } from 'react-icons/io5';
 
 export const myStructure = (S) =>
   S.list()
@@ -47,6 +48,14 @@ export const myStructure = (S) =>
                             .documentId('exhibitions')
                         )
                         .icon(MdFilterFrames),
+                      S.listItem()
+                        .title('För Konstnärer')
+                        .child(
+                          S.document()
+                            .schemaType('forArtists')
+                            .documentId('forArtists')
+                        )
+                        .icon(IoPeopleCircleSharp),
                     ])
                 ),
             ])

@@ -383,10 +383,10 @@ export default function Navbar() {
                   <Link href='/galleri/information'>Information</Link>
                 </li>
                 <li>
-                  <Link href='#'>Utställningar</Link>
+                  <Link href='/galleri/utstallningar'>Utställningar</Link>
                 </li>
                 <li>
-                  <Link href='#'>För Konstnärer</Link>
+                  <Link href='/galleri/for-konstnarer'>För Konstnärer</Link>
                 </li>
               </DropMenu>
             </li>
@@ -457,10 +457,10 @@ export default function Navbar() {
                   <Link href='#'>Vad Ingår</Link>
                 </li>
                 <li>
-                  <Link href='#'>Utställningar</Link>
+                  <Link href='#'>Priser</Link>
                 </li>
                 <li>
-                  <Link href='#'>För Konstnärer</Link>
+                  <Link href='#'>Bilder</Link>
                 </li>
               </DropMenu>
             </li>

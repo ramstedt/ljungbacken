@@ -3,20 +3,21 @@ import { IoMdSchool, IoMdInformationCircle } from 'react-icons/io';
 import { PiHouseLineFill } from 'react-icons/pi';
 import { MdFilterFrames } from 'react-icons/md';
 import { IoPeopleCircleSharp } from 'react-icons/io5';
+import { BsCalendar2CheckFill } from 'react-icons/bs';
 
 export const myStructure = (S) =>
   S.list()
     .title('Innehåll')
     .items([
       S.documentTypeListItem('employee')
-        .title('Medarbetare')
+        .title('Lägg till medarbetare')
         .icon(BsPersonFill),
-      S.documentTypeListItem('course').title('Kurser').icon(IoMdSchool),
+      S.documentTypeListItem('course').title('Lägg till kurs').icon(IoMdSchool),
       S.listItem()
-        .title('Pages')
+        .title('Sidor')
         .child(
           S.list()
-            .title('Pages')
+            .title('Sidor')
             .items([
               S.listItem()
                 .title('Hem')
@@ -56,6 +57,20 @@ export const myStructure = (S) =>
                             .documentId('forArtists')
                         )
                         .icon(IoPeopleCircleSharp),
+                    ])
+                ),
+              S.listItem()
+                .title('Kurser')
+                .child(
+                  S.list()
+                    .title('Instruktörer')
+                    .items([
+                      S.listItem()
+                        .title('Boka')
+                        .child(
+                          S.document().schemaType('book').documentId('book')
+                        )
+                        .icon(BsCalendar2CheckFill),
                     ])
                 ),
             ])

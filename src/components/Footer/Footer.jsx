@@ -9,6 +9,10 @@ const Wrapper = styled.footer`
   padding: 0.5rem;
   text-align: center;
 
+  div {
+    margin: auto;
+  }
+
   nav ul {
     padding: 1rem;
     list-style-type: none;

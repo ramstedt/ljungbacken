@@ -1,5 +1,6 @@
 import { about } from './schemas/about';
 import { blockContent } from './schemas/blockContent';
+import { book } from './schemas/book';
 import { course } from './schemas/course';
 import { employee } from './schemas/employee';
 import { exhibitions } from './schemas/exhibitions';
@@ -17,5 +18,6 @@ export const schema = {
     information,
     exhibitions,
     forArtists,
+    book,
   ],
 };

@@ -420,7 +420,7 @@ export default function Navbar() {
                         : courses.map((course, key) => {
                             return (
                               <li key={key}>
-                                <Link href={course.slug.current}>
+                                <Link href={`/kurser/${course.slug.current}`}>
                                   {course.name}
                                 </Link>
                               </li>
@@ -432,10 +432,10 @@ export default function Navbar() {
                     <Header>Information</Header>
                     <MegaLinks>
                       <li>
-                        <Link href='#'>Instruktörer</Link>
+                        <Link href='/instruktorer'>Instruktörer</Link>
                       </li>
                       <li>
-                        <Link href='#'>Boka</Link>
+                        <Link href='/kurser/boka'>Boka</Link>
                       </li>
                     </MegaLinks>
                   </Row>
@@ -454,13 +454,16 @@ export default function Navbar() {
               </MobileItem>
               <DropMenu className='drop-menu last'>
                 <li>
-                  <Link href='#'>Vad Ingår</Link>
+                  <Link href='hyra/vad-ingar'>Vad Ingår</Link>
                 </li>
                 <li>
-                  <Link href='#'>Priser</Link>
+                  <Link href='/hyra/priser'>Priser</Link>
                 </li>
                 <li>
-                  <Link href='#'>Bilder</Link>
+                  <Link href='/hyra/bilder'>Bilder</Link>
+                </li>
+                <li>
+                  <Link href='/hyra/boka'>Bokningsförfrågan</Link>
                 </li>
               </DropMenu>
             </li>

@@ -38,17 +38,17 @@ export default function ContentBasic({ title, text, image, alt }) {
     <Wrapper>
       <Header>
         <h1>{title}</h1>
+        <Content>
+          <Text>
+            <SanityBlockContent blocks={text} />
+          </Text>
+          {image ? (
+            <ImageWrapper>
+              <Image src={image} alt={alt} layout='fill' />
+            </ImageWrapper>
+          ) : null}
+        </Content>
       </Header>
-      <Content>
-        <Text>
-          <SanityBlockContent blocks={text} />
-        </Text>
-        {image ? (
-          <ImageWrapper>
-            <Image src={image} alt={alt} layout='fill' />
-          </ImageWrapper>
-        ) : null}
-      </Content>
     </Wrapper>
   );
 }

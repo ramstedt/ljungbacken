@@ -83,6 +83,10 @@ a:hover::after {
   border: none;
 }
 
+.logo {
+  max-width: fit-content;
+}
+
 .logo a {
   color: #1f1f1f;
   font-size: 1.875rem;
@@ -90,6 +94,16 @@ a:hover::after {
   text-decoration: none;
   text-transform: uppercase;
   font-family: 'Audrey-Normal';
+  max-width: fit-content;
+}
+
+input,
+textarea,
+select {
+  color: #1f1f1f;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.3rem;
 }
 
 @media screen and (min-width: 768px) {

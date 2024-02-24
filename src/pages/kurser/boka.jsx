@@ -5,6 +5,24 @@ import CourseCard from '@/src/components/CourseCard/CourseCard';
 import imageUrlBuilder from '@sanity/image-url';
 import CoursesWrapper from '@/src/components/CoursesWrapper/CoursesWrapper';
 import styled from 'styled-components';
+import Header from '@/src/components/_atoms/Header/Header';
+import SanityBlockContent from '@sanity/block-content-to-react';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: normal;
+  }
+`;
+
+const Text = styled.div`
+  width: 100%;
+`;
 
 const FormBlock = styled.div`
   display: flex;
@@ -20,7 +38,10 @@ const FormBlock = styled.div`
 
 const NameInputs = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+  input {
+    width: 50%;
+  }
 `;
 
 const Form = styled.form`
@@ -30,6 +51,19 @@ const Form = styled.form`
   gap: 1rem;
 `;
 
+const Button = styled.button`
+  max-width: 100px;
+  padding: 0.2rem;
+  background: #444c41;
+  color: white;
+  border-style: solid;
+  border-color: #444c41;
+  &:hover {
+    color: #444c41;
+    background: #f1f3f0;
+  }
+`;
+
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
   return builder.image(source);
@@ -37,10 +71,13 @@ function urlFor(source) {
 
 export default function Courses() {
   const [courses, setCourses] = useState(null);
+  const [book, setBook] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [firstName, setFirstName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [selectedCoursePrice, setSelectedCoursePrice] = useState('');
   const [message, setMessage] = useState('');
 
   const [error, setError] = useState('');
@@ -77,9 +114,13 @@ export default function Courses() {
 
   useEffect(() => {
     setLoading(true);
-    Promise.all([client.fetch(`*[_type == "course"]`)])
-      .then(([coursesData]) => {
+    Promise.all([
+      client.fetch(`*[_type == "course"]`),
+      client.fetch(`*[_type == "book"]`),
+    ])
+      .then(([coursesData, bookData]) => {
         setCourses(coursesData);
+        setBook(bookData[0]);
         setLoading(false);
       })
       .catch((error) => {
@@ -87,72 +128,101 @@ export default function Courses() {
       });
   }, []);
 
+  const handleChange = (event) => {
+    setSelectedCourse(event && event.target.value);
+    courses.map((course) => {
+      if (course.name === event.target.value) {
+        setSelectedCoursePrice(course.price);
+      }
+    });
+  };
+
   return (
     <Layout>
       {isLoading ? null : (
-        <Form onSubmit={(e) => onSubmit(e)}>
-          <FormBlock>
-            <div>
-              <label htmlFor='firstName'>Ange ditt förnamn</label>{' '}
-              <label htmlFor='surname'>och efternamn</label>
-            </div>
-            <NameInputs>
-              <input
-                type='text'
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                id='firstName'
-                placeholder='Förnamn'
-              />
-              <input
-                type='text'
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
-                id='surname'
-                placeholder='Efternamn'
-              />
-            </NameInputs>
-          </FormBlock>
+        <Wrapper>
+          <Text>
+            <Header>
+              <h1>{book.title}</h1>
+            </Header>
+            <SanityBlockContent blocks={book && book.text} />
+          </Text>
+          <Form onSubmit={(e) => onSubmit(e)}>
+            <FormBlock>
+              <div>
+                <label htmlFor='firstName'>Ange ditt förnamn</label>{' '}
+                <label htmlFor='surname'>och efternamn</label>
+              </div>
+              <NameInputs>
+                <input
+                  type='text'
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  id='firstName'
+                  placeholder='Förnamn'
+                />
+                <input
+                  type='text'
+                  value={surname}
+                  onChange={(e) => setSurname(e.target.value)}
+                  id='surname'
+                  placeholder='Efternamn'
+                />
+              </NameInputs>
+            </FormBlock>
 
-          <FormBlock>
-            <label htmlFor='email'>Ange din emailadress</label>
-            <input
-              type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              id='email'
-              placeholder='email@email.com'
-            />
-          </FormBlock>
-          <FormBlock>
-            <label htmlFor='course'>Vilken kurs är du intresserad av?</label>
-            <select name='course' id='course'>
-              <option value='' selected disabled hidden>
-                Välj en kurs
-              </option>
-              {courses &&
-                courses.map((course, key) => {
-                  return (
-                    <option key={key} value={course.name}>
-                      {course.name}
-                    </option>
-                  );
-                })}
-            </select>
-          </FormBlock>
-          <FormBlock>
-            <label htmlFor='message'>Meddelande</label>
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              id='message'
-              placeholder='Skriv ditt meddelande...'
-            ></textarea>
-          </FormBlock>
-          <FormBlock>
-            <button type='submit'>Skicka</button>
-          </FormBlock>
-        </Form>
+            <FormBlock>
+              <label htmlFor='email'>Ange din emailadress</label>
+              <input
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id='email'
+                placeholder='email@email.com'
+              />
+            </FormBlock>
+            <FormBlock>
+              <label htmlFor='course'>Vilken kurs är du intresserad av?</label>
+              <select
+                name='course'
+                id='course'
+                onChange={handleChange} // Corrected: removed the parentheses
+                value={selectedCourse}
+              >
+                <option value='' defaultValue disabled hidden>
+                  Välj en kurs
+                </option>
+                {courses &&
+                  courses.map((course, key) => {
+                    if (course.freeSeats === 0) {
+                      return;
+                    } else {
+                      return (
+                        <option key={key} value={course.name}>
+                          {course.name}
+                        </option>
+                      );
+                    }
+                  })}
+              </select>
+              {selectedCourse.length <= 2
+                ? null
+                : `${selectedCourse} - ${selectedCoursePrice} kr per person`}
+            </FormBlock>
+            <FormBlock>
+              <label htmlFor='message'>Meddelande</label>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                id='message'
+                placeholder='Skriv ditt meddelande...'
+              ></textarea>
+            </FormBlock>
+            <FormBlock>
+              <Button type='submit'>Skicka</Button>
+            </FormBlock>
+          </Form>
+        </Wrapper>
       )}
     </Layout>
   );

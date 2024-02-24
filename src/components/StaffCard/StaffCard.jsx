@@ -39,7 +39,7 @@ const Details = styled.div`
 `;
 export default function StaffCard({ image, alt, name, title, slug }) {
   return (
-    <Wrapper href={`instruktor/${slug}`}>
+    <Wrapper href={`/instruktor/${slug}`}>
       <ImageWrapper>
         <Image src={image} alt={alt} layout='fill' />
       </ImageWrapper>

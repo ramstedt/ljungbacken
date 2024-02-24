@@ -66,11 +66,12 @@ const Wrapper = styled.div`
   position: relative;
   max-width: 1300px;
   padding: 0px 5px;
-  height: 4.3rem;
+  height: 3rem;
+  padding-bottom: 0.3rem;
   line-height: 1.7rem;
   margin: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 
   input {
@@ -356,6 +357,11 @@ export default function Navbar() {
             <BtnCloseBtn htmlFor='close-btn'>
               <TfiClose />
             </BtnCloseBtn>
+            <li>
+              <Link href='/' className='parentLink'>
+                Hem
+              </Link>
+            </li>
             <li>
               <Link href='/' className='parentLink'>
                 Om Ljungbacken

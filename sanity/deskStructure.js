@@ -1,5 +1,5 @@
 import { BsPersonFill } from 'react-icons/bs';
-import { IoMdSchool } from 'react-icons/io';
+import { IoMdSchool, IoMdInformationCircle } from 'react-icons/io';
 import { PiHouseLineFill } from 'react-icons/pi';
 
 export const myStructure = (S) =>
@@ -20,6 +20,10 @@ export const myStructure = (S) =>
                 .title('Hem')
                 .child(S.document().schemaType('home').documentId('home'))
                 .icon(PiHouseLineFill),
+              S.listItem()
+                .title('Om Ljungbacken')
+                .child(S.document().schemaType('about').documentId('about'))
+                .icon(IoMdInformationCircle),
             ])
         ),
     ]);

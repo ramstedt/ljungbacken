@@ -108,6 +108,7 @@ const DropMenu = styled.ul`
   visibility: hidden;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   transition-delay: 0.2s;
+  top: 3rem;
 
   &.last {
     right: 0;
@@ -148,7 +149,7 @@ const MegaBox = styled.div`
   left: 0;
   width: 100%;
   padding: 0 30px;
-  top: 4rem;
+  top: 3rem;
   opacity: 0;
   visibility: hidden;
   transition-delay: 0.2s;
@@ -183,7 +184,7 @@ const NavLinks = styled.ul`
 
   li:hover ${DropMenu}, li:hover ${MegaBox} {
     transition: all 0.3s ease;
-    top: 4rem;
+    top: 3rem !important;
     opacity: 1;
     visibility: visible;
   }
@@ -363,7 +364,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href='/' className='parentLink'>
+              <Link href='/om-oss' className='parentLink'>
                 Om Ljungbacken
               </Link>
             </li>

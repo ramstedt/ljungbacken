@@ -59,6 +59,7 @@ const MapsWrapper = styled.div`
   height: 300px;
 `;
 //https://www.maps.ie/create-google-map/
+
 export default function Footer() {
   return (
     <>
@@ -94,9 +95,6 @@ export default function Footer() {
         <iframe
           width='100%'
           height='300'
-          frameborder='0'
-          marginheight='0'
-          marginwidth='0'
           src='https://maps.google.com/maps?25&amp;hl=sv&amp;q=Brunnsparken,%20411%2006%20G%C3%B6teborg+(brunnsparken)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
         ></iframe>
       </MapsWrapper>

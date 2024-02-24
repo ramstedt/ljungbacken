@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { client } from '@/sanity/lib/client';
 
 const Wrapper = styled.footer`
   margin-top: auto;
@@ -39,6 +41,9 @@ const Wrapper = styled.footer`
 const ContactWrapper = styled.div`
   color: #fdfffb;
   text-align: center;
+  div a {
+    color: #fdfffb;
+  }
 
   h3 {
     margin-bottom: 0.8rem;
@@ -46,6 +51,7 @@ const ContactWrapper = styled.div`
   div {
     margin-bottom: 0.5rem;
     line-height: 1rem;
+    max-width: fit-content;
   }
   div:last-of-type {
     display: flex;
@@ -57,6 +63,9 @@ const ContactWrapper = styled.div`
     width: 1rem;
     height: 1rem;
   }
+  div svg:hover {
+    color: #fdfffb;
+  }
 `;
 
 const MapsWrapper = styled.div`
@@ -65,35 +74,66 @@ const MapsWrapper = styled.div`
 //https://www.maps.ie/create-google-map/
 
 export default function Footer() {
+  const [footer, setFooter] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    Promise.all([client.fetch(`*[_type == "footer"]`)])
+      .then(([data]) => {
+        setFooter(data[0]);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
+
   return (
     <>
       <Wrapper>
         <div className='logo'>
           <Link href='/'>Ljungbacken</Link>
         </div>
-        <ContactWrapper>
-          <h3>Kontakta oss</h3>
-          <div>Telefon: 123</div>
-          <div>Email: email@email.se</div>
-          <div>Adress: Gatuvägen 4, 414 54, Göteborg</div>
-          <div>
-            Connecta med oss: <FaInstagram /> <FaFacebook />
-          </div>
-          <hr />
-        </ContactWrapper>
-        <nav>
-          <ul>
-            <li>
-              <Link href=''>Hem</Link>
-            </li>
-            <li>
-              <Link href=''>Om Oss</Link>
-            </li>
-            <li>
-              <Link href=''>Kurser</Link>
-            </li>
-          </ul>
-        </nav>
+        {isLoading ? null : (
+          <>
+            <ContactWrapper>
+              <h3>Kontakta oss</h3>
+              <div>
+                Telefon:{' '}
+                <Link href={`tel:${footer.phone}`}>{footer.phone}</Link>
+              </div>
+              <div>
+                Email:{' '}
+                <Link href={`mailto:${footer.email}`}>{footer.email}</Link>
+              </div>
+              <div>Adress: {footer.address}</div>
+              <div>
+                Connecta med oss:{' '}
+                <Link href={`${footer.instagram}`}>
+                  <FaInstagram />
+                </Link>{' '}
+                <Link href={`${footer.facebook}`}>
+                  <FaFacebook />
+                </Link>
+              </div>
+              <hr />
+            </ContactWrapper>
+            <nav>
+              <ul>
+                <li>
+                  <Link href=''>Hem</Link>
+                </li>
+                <li>
+                  <Link href='/om-oss'>Om Oss</Link>
+                </li>
+                <li>
+                  <Link href='/kurser'>Kurser</Link>
+                </li>
+              </ul>
+            </nav>
+          </>
+        )}
       </Wrapper>
       <MapsWrapper>
         <iframe

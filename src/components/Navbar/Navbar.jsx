@@ -454,7 +454,7 @@ export default function Navbar() {
               </MobileItem>
               <DropMenu className='drop-menu last'>
                 <li>
-                  <Link href='hyra/vad-ingar'>Vad Ingår</Link>
+                  <Link href='/hyra/vad-ingar'>Vad Ingår</Link>
                 </li>
                 <li>
                   <Link href='/hyra/priser'>Priser</Link>

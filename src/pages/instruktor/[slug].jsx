@@ -2,12 +2,9 @@ import { useRouter } from 'next/router';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
 import Layout from '@/src/components/Layout/Layout';
 import Header from '@/src/components/_atoms/Header/Header';
-import CoursesWrapper from '@/src/components/CoursesWrapper/CoursesWrapper';
-import CourseCard from '@/src/components/CourseCard/CourseCard';
 import SanityBlockContent from '@sanity/block-content-to-react';
 import Image from 'next/image';
 

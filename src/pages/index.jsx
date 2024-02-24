@@ -53,43 +53,47 @@ export default function Home() {
 
   return (
     <Layout>
-      <Header>
-        <h1>{home.title}</h1>
-      </Header>
-      <SanityBlockContent blocks={home && home.text} />
-      <Header>
-        <h2>Kurskatalog</h2>
-      </Header>
-      <CoursesWrapper>
-        {courses.map((course, key) => {
-          return (
-            <CourseCard
-              key={key}
-              name={course.name}
-              slug={course.slug.current}
-              image={course.image && urlFor(course.image).url()}
-              alt={course.image.alt}
-            />
-          );
-        })}
-      </CoursesWrapper>
-      <Header>
-        <h2>Vi som jobbar här</h2>
-      </Header>
-      <StaffWrapper>
-        {staff.map((employee, key) => {
-          return (
-            <StaffCard
-              key={key}
-              image={employee.image && urlFor(employee.image).url()}
-              alt={employee.image.alt}
-              name={employee.name}
-              title={employee.jobtitle}
-              slug={employee.slug.current}
-            />
-          );
-        })}
-      </StaffWrapper>
+      {isLoading ? null : (
+        <>
+          <Header>
+            <h1>{home.title}</h1>
+          </Header>
+          <SanityBlockContent blocks={home && home.text} />
+          <Header>
+            <h2>Kurskatalog</h2>
+          </Header>
+          <CoursesWrapper>
+            {courses.map((course, key) => {
+              return (
+                <CourseCard
+                  key={key}
+                  name={course.name}
+                  slug={course.slug.current}
+                  image={course.image && urlFor(course.image).url()}
+                  alt={course.image.alt}
+                />
+              );
+            })}
+          </CoursesWrapper>
+          <Header>
+            <h2>Vi som jobbar här</h2>
+          </Header>
+          <StaffWrapper>
+            {staff.map((employee, key) => {
+              return (
+                <StaffCard
+                  key={key}
+                  image={employee.image && urlFor(employee.image).url()}
+                  alt={employee.image.alt}
+                  name={employee.name}
+                  title={employee.jobtitle}
+                  slug={employee.slug.current}
+                />
+              );
+            })}
+          </StaffWrapper>
+        </>
+      )}
     </Layout>
   );
 }

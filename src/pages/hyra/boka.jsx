@@ -69,7 +69,7 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-export default function BookCourse() {
+export default function RentPage() {
   const [courses, setCourses] = useState(null);
   const [book, setBook] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -77,8 +77,6 @@ export default function BookCourse() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState('');
-  const [selectedCoursePrice, setSelectedCoursePrice] = useState('');
   const [message, setMessage] = useState('');
 
   const [error, setError] = useState('');
@@ -123,12 +121,8 @@ export default function BookCourse() {
 
   useEffect(() => {
     setLoading(true);
-    Promise.all([
-      client.fetch(`*[_type == "course"]`),
-      client.fetch(`*[_type == "bookCourse"]`),
-    ])
-      .then(([coursesData, bookData]) => {
-        setCourses(coursesData);
+    Promise.all([client.fetch(`*[_type == "bookVenue"]`)])
+      .then(([bookData]) => {
         setBook(bookData[0]);
         setLoading(false);
       })
@@ -157,7 +151,7 @@ export default function BookCourse() {
             <SanityBlockContent blocks={book && book.text} />
           </Text>
           <Form onSubmit={(e) => onSubmit(e)}>
-            <h2>Boka en kurs</h2>
+            <h2>Bokningsförfrågan hyra lokal</h2>
             <FormBlock>
               <div>
                 <label htmlFor='firstName'>Ange ditt förnamn</label>{' '}
@@ -200,34 +194,6 @@ export default function BookCourse() {
                 id='phone'
                 placeholder='0702000000'
               />
-            </FormBlock>
-            <FormBlock>
-              <label htmlFor='course'>Vilken kurs är du intresserad av?</label>
-              <select
-                name='course'
-                id='course'
-                onChange={handleChange} // Corrected: removed the parentheses
-                value={selectedCourse}
-              >
-                <option value='' defaultValue disabled hidden>
-                  Välj en kurs
-                </option>
-                {courses &&
-                  courses.map((course, key) => {
-                    if (course.freeSeats === 0) {
-                      return;
-                    } else {
-                      return (
-                        <option key={key} value={course.name}>
-                          {course.name}
-                        </option>
-                      );
-                    }
-                  })}
-              </select>
-              {selectedCourse.length <= 2
-                ? null
-                : `${selectedCourse} - ${selectedCoursePrice} kr per person`}
             </FormBlock>
             <FormBlock>
               <label htmlFor='message'>Meddelande</label>

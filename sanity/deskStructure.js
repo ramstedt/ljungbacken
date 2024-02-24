@@ -1,9 +1,17 @@
 import { BsPersonFill } from 'react-icons/bs';
 import { IoMdSchool, IoMdInformationCircle } from 'react-icons/io';
 import { PiHouseLineFill } from 'react-icons/pi';
-import { MdFilterFrames, MdPeopleAlt } from 'react-icons/md';
+import {
+  MdFilterFrames,
+  MdPeopleAlt,
+  MdOutlineAttachMoney,
+} from 'react-icons/md';
 import { IoPeopleCircleSharp } from 'react-icons/io5';
 import { BsCalendar2CheckFill } from 'react-icons/bs';
+import { GoCheck } from 'react-icons/go';
+import { IoMdPhotos } from 'react-icons/io';
+import { FaKey } from 'react-icons/fa6';
+import { RiLayoutBottom2Fill } from 'react-icons/ri';
 
 export const myStructure = (S) =>
   S.list()
@@ -13,6 +21,10 @@ export const myStructure = (S) =>
         .title('Lägg till instruktör')
         .icon(BsPersonFill),
       S.documentTypeListItem('course').title('Lägg till kurs').icon(IoMdSchool),
+      S.listItem()
+        .title('Footer')
+        .child(S.document().schemaType('footer').documentId('footer'))
+        .icon(RiLayoutBottom2Fill),
       S.listItem()
         .title('Sidor')
         .child(
@@ -68,7 +80,9 @@ export const myStructure = (S) =>
                       S.listItem()
                         .title('Boka')
                         .child(
-                          S.document().schemaType('book').documentId('book')
+                          S.document()
+                            .schemaType('bookCourse')
+                            .documentId('bookCourse')
                         )
                         .icon(BsCalendar2CheckFill),
                       S.listItem()
@@ -79,6 +93,42 @@ export const myStructure = (S) =>
                             .documentId('instructors')
                         )
                         .icon(MdPeopleAlt),
+                    ])
+                ),
+              S.listItem()
+                .title('Hyr lokal')
+                .child(
+                  S.list()
+                    .title('Hyr lokal')
+                    .items([
+                      S.listItem()
+                        .title('Vad ingår')
+                        .child(
+                          S.document()
+                            .schemaType('whatsIncluded')
+                            .documentId('whatsIncluded')
+                        )
+                        .icon(GoCheck),
+                      S.listItem()
+                        .title('Priser')
+                        .child(
+                          S.document().schemaType('prices').documentId('prices')
+                        )
+                        .icon(MdOutlineAttachMoney),
+                      S.listItem()
+                        .title('Bilder')
+                        .child(
+                          S.document().schemaType('photos').documentId('photos')
+                        )
+                        .icon(IoMdPhotos),
+                      S.listItem()
+                        .title('Bokningsförfrågan')
+                        .child(
+                          S.document()
+                            .schemaType('bookVenue')
+                            .documentId('bookVenue')
+                        )
+                        .icon(FaKey),
                     ])
                 ),
             ])

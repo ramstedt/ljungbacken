@@ -1,6 +1,6 @@
-export const book = {
-  name: 'book',
-  title: 'Boka',
+export const bookVenue = {
+  name: 'bookVenue',
+  title: 'Bokningsförfrågan',
   type: 'document',
   fields: [
     {

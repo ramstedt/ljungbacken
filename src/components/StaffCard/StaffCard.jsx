@@ -22,6 +22,9 @@ const ImageWrapper = styled.div`
   border-radius: 50%;
   position: relative;
   overflow: hidden;
+  img {
+    object-fit: cover;
+  }
 `;
 const Details = styled.div`
   width: 100%;
@@ -30,6 +33,7 @@ const Details = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #1f1f1f;
+  text-align: center;
   &:hover {
     color: #645757;
   }

@@ -74,7 +74,7 @@ export default function Home() {
             })}
           </CoursesWrapper>
           <Header>
-            <h2>Vi som jobbar här</h2>
+            <h2>Instruktörer</h2>
           </Header>
           <StaffWrapper>
             {staff.map((employee, key) => {

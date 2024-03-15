@@ -139,7 +139,7 @@ export default function Footer() {
         <iframe
           width='100%'
           height='300'
-          src='https://maps.google.com/maps?25&amp;hl=sv&amp;q=Brunnsparken,%20411%2006%20G%C3%B6teborg+(brunnsparken)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+          src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ljungbackenv%C3%A4gen%2040E+(Ljungbacken)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
         ></iframe>
       </MapsWrapper>
     </>

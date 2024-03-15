@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const Wrapper = styled.a`
-  width: 100px;
+  width: 200px;
   height: 190px;
   padding: 1rem;
   display: flex;

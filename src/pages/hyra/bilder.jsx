@@ -3,6 +3,7 @@ import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';
 import ContentBasic from '@/src/components/ContentBasic/ContentBasic';
+import Gallery from '@/src/components/Gallery/Gallery';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -37,6 +38,7 @@ export default function PhotosPage() {
             image={data.image && urlFor(data.image).url()}
             alt={data.image && data.image.alt}
           />
+          <Gallery images={data.gallery} />
         </>
       )}
     </Layout>

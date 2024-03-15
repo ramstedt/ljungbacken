@@ -91,9 +91,10 @@ function GalleryModal({ image }) {
 export default function GalleryComponent({ images }) {
   return (
     <Wrapper>
-      {images.map((image, key) => {
-        return <GalleryModal key={key} image={image} />;
-      })}
+      {images &&
+        images.map((image, key) => {
+          return <GalleryModal key={key} image={image} />;
+        })}
     </Wrapper>
   );
 }

@@ -7,6 +7,7 @@ import Layout from '@/src/components/Layout/Layout';
 import Header from '@/src/components/_atoms/Header/Header';
 import SanityBlockContent from '@sanity/block-content-to-react';
 import Image from 'next/image';
+import GalleryComponent from '@/src/components/Gallery/Gallery';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const Content = styled.div`
   gap: 1rem;
   min-width: 300px;
   @media screen and (min-width: 768px) {
-    max-width: 50%;
+    max-width: 100%;
   }
 `;
 
@@ -106,6 +107,12 @@ export default function InstructorPage() {
           />
         </ImageWrapper>
       </Wrapper>
+      {instructor.gallery && instructor.gallery.length > 0 ? (
+        <>
+          <h2>Galleri</h2>
+          <GalleryComponent images={instructor.gallery} />
+        </>
+      ) : null}
     </Layout>
   );
 }

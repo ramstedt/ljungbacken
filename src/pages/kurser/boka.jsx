@@ -87,7 +87,7 @@ export default function BookCourse() {
     e.preventDefault();
     e.stopPropagation();
 
-    fetch(`${process.env.NEXT_PUBLIC_FORMCARRY_URL}`, {
+    fetch(`${process.env.NEXT_PUBLIC_FORMCARRY_COURSE_URL}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -106,7 +106,7 @@ export default function BookCourse() {
       .then((response) => response.json())
       .then((response) => {
         if (response.code === 200) {
-          alert('We received your submission, thank you!');
+          alert('Vi har tagit emot din förfrågan och hör av oss inom kort!');
         } else if (response.code === 422) {
           // Field validation failed
           setError(response.message);

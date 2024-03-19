@@ -7,6 +7,11 @@ import CoursesWrapper from '@/src/components/CoursesWrapper/CoursesWrapper';
 import styled from 'styled-components';
 import Header from '@/src/components/_atoms/Header/Header';
 import SanityBlockContent from '@sanity/block-content-to-react';
+import { CustomProvider, DateRangePicker } from 'rsuite';
+import svSE from 'rsuite/locales/sv_SE';
+import 'rsuite/DateRangePicker/styles/index.css';
+
+const { beforeToday } = DateRangePicker;
 
 const Wrapper = styled.div`
   display: flex;
@@ -77,6 +82,8 @@ export default function RentPage() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [dateRange, setDateRange] = useState([]);
+  const [date, setDate] = useState('');
   const [message, setMessage] = useState('');
 
   const [error, setError] = useState('');
@@ -96,8 +103,7 @@ export default function RentPage() {
         surname,
         email,
         phone,
-        selectedCourse,
-        selectedCoursePrice,
+        date,
         message,
       }),
     })
@@ -131,13 +137,12 @@ export default function RentPage() {
       });
   }, []);
 
-  const handleChange = (event) => {
-    setSelectedCourse(event && event.target.value);
-    courses.map((course) => {
-      if (course.name === event.target.value) {
-        setSelectedCoursePrice(course.price);
-      }
-    });
+  const handleChange = (value) => {
+    setDate(
+      `${value[0].toISOString().split('T')[0]} - ${
+        value[1].toISOString().split('T')[0]
+      }`
+    );
   };
 
   return (
@@ -164,6 +169,7 @@ export default function RentPage() {
                   onChange={(e) => setFirstName(e.target.value)}
                   id='firstName'
                   placeholder='Förnamn'
+                  required
                 />
                 <input
                   type='text'
@@ -171,6 +177,7 @@ export default function RentPage() {
                   onChange={(e) => setSurname(e.target.value)}
                   id='surname'
                   placeholder='Efternamn'
+                  required
                 />
               </NameInputs>
             </FormBlock>
@@ -183,6 +190,7 @@ export default function RentPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 id='email'
                 placeholder='email@email.com'
+                required
               />
             </FormBlock>
             <FormBlock>
@@ -193,7 +201,26 @@ export default function RentPage() {
                 onChange={(e) => setPhone(e.target.value)}
                 id='phone'
                 placeholder='0702000000'
+                required
               />
+            </FormBlock>
+            <FormBlock>
+              <CustomProvider locale={svSE}>
+                <DateRangePicker
+                  format='MM/dd/yyyy'
+                  size='md'
+                  block
+                  placeholder='Välj datum'
+                  showOneCalendar
+                  shouldDisableDate={beforeToday()}
+                  ranges={[]}
+                  style={{ border: 'inherit' }}
+                  showHeader={false}
+                  className='dateRangePicker'
+                  value={dateRange}
+                  onChange={handleChange}
+                />
+              </CustomProvider>
             </FormBlock>
             <FormBlock>
               <label htmlFor='message'>Meddelande</label>
@@ -202,6 +229,7 @@ export default function RentPage() {
                 onChange={(e) => setMessage(e.target.value)}
                 id='message'
                 placeholder='Skriv ditt meddelande...'
+                required
               ></textarea>
             </FormBlock>
             <FormBlock>

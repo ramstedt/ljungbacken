@@ -122,3 +122,18 @@ a.disabled {
   color: #444c41;
   background: #f1f3f0;
 }
+
+.dateRangePicker div {
+  border-radius: 0px !important;
+  border-style: 1px solid !important;
+  border-color: rgb(118, 118, 118);
+}
+
+.dateRangePicker input {
+  border-style: 1px solid #1f1f1f !important;
+  padding-left: 0.3rem !important;
+}
+
+.dateRangePicker svg {
+  color: rgb(118, 118, 118);
+}

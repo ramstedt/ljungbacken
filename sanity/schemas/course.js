@@ -47,6 +47,12 @@ export const course = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'hour',
+      title: 'Antal timmar',
+      type: 'number',
+      description: 'Endast siffror',
+    },
+    {
       name: 'seats',
       title: 'Antal platser (total)',
       type: 'number',

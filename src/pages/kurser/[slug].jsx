@@ -26,7 +26,7 @@ const Content = styled.div`
   gap: 1rem;
   min-width: 300px;
   @media screen and (min-width: 768px) {
-    max-width: 50%;
+    max-width: 90%;
   }
 `;
 
@@ -42,8 +42,8 @@ const ImageWrapper = styled.div`
 `;
 
 const Button = styled.a`
-  max-width: 100px;
-  padding: 0.2rem;
+  width: fit-content;
+  padding: 0.3rem 1rem 0.3rem 1rem;
   background: #444c41;
   color: white;
   border-style: solid;
@@ -120,10 +120,18 @@ export default function CoursePage() {
               </div>
               <div>
                 <small>
+                  Antal timmar: {selectedCourse && selectedCourse.hour} h
+                </small>
+              </div>
+              <div>
+                <small>Pris: {selectedCourse && selectedCourse.price} kr</small>
+              </div>
+              <div>
+                <small>
+                  Antal platser: {selectedCourse.seats}{' '}
                   {selectedCourse.freeSeats === 0
-                    ? 'Fullbokat'
-                    : ` Antal platser: ${selectedCourse.seats} (
-                  ${selectedCourse.freeSeats} lediga)`}
+                    ? '(Fullbokat)'
+                    : `(${selectedCourse.freeSeats} lediga)`}
                 </small>
               </div>
             </div>
@@ -132,9 +140,14 @@ export default function CoursePage() {
                 blocks={selectedCourse && selectedCourse.description}
               />
             </div>
-            {selectedCourse.freeSeats === 0 ? null : (
-              <Button href='/kurser/boka'>Boka kurs</Button>
-            )}
+            <Button
+              href='/kurser/boka'
+              className={selectedCourse.freeSeats === 0 ? 'disabled' : null}
+            >
+              {selectedCourse.freeSeats === 0
+                ? 'Kursen är för tillfället fullbokad'
+                : 'Boka Kurs'}
+            </Button>
           </Content>
         </Header>
         <ImageWrapper>

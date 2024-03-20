@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled, { createGlobalStyle } from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';
-import { CiMenuBurger } from 'react-icons/ci';
+import { RxHamburgerMenu } from 'react-icons/rx';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { client } from '@/sanity/lib/client';
@@ -306,7 +306,7 @@ const BtnCloseBtn = styled.label`
 const MenuBtn = styled.label`
   position: absolute;
   right: 5px;
-  top: 12px;
+  top: 9px;
   color: #efefef;
   font-size: 1.25rem;
   cursor: pointer;
@@ -468,7 +468,7 @@ export default function Navbar() {
             </li>
           </NavLinks>
           <MenuBtn htmlFor='menu-btn' className='btn menu-btn'>
-            <CiMenuBurger />
+            <RxHamburgerMenu />
           </MenuBtn>
         </Wrapper>
       </Nav>

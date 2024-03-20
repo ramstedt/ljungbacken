@@ -97,12 +97,17 @@ a:hover::after {
 
 .logo a {
   color: #1f1f1f;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   text-decoration: none;
   text-transform: uppercase;
   font-family: 'Audrey-Normal';
   max-width: fit-content;
+}
+@media screen and (min-width: 375px) {
+  .logo a {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 1020px) {

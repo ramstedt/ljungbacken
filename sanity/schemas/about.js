@@ -1,6 +1,6 @@
 export const about = {
   name: 'about',
-  title: 'Om Ljungbacken',
+  title: 'Om Villa Ljungbacken',
   type: 'document',
   fields: [
     {

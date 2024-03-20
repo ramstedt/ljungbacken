@@ -36,7 +36,7 @@ export const myStructure = (S) =>
                 .child(S.document().schemaType('home').documentId('home'))
                 .icon(PiHouseLineFill),
               S.listItem()
-                .title('Om Ljungbacken')
+                .title('Om Villa Ljungbacken')
                 .child(S.document().schemaType('about').documentId('about'))
                 .icon(IoMdInformationCircle),
               S.listItem()

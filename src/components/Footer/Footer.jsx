@@ -95,7 +95,7 @@ export default function Footer() {
     <>
       <Wrapper>
         <div className='logo'>
-          <Link href='/'>Ljungbacken</Link>
+          <Link href='/'>Villa Ljungbacken</Link>
         </div>
         {isLoading ? null : (
           <>

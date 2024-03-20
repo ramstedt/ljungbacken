@@ -26,7 +26,7 @@ svg{
   color: #1f1f1f !important; 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 810px) {
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -81,7 +81,7 @@ const Wrapper = styled.div`
 
 const MobileItem = styled.label`
   display: none;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     display: block;
     color: #1f1f1f;
     font-size: 1.25rem;
@@ -122,7 +122,7 @@ const DropMenu = styled.ul`
     font-size: 0.8rem !important;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     align-items: flex-start;
     position: static;
     opacity: 1;
@@ -154,7 +154,7 @@ const MegaBox = styled.div`
   visibility: hidden;
   transition-delay: 0.2s;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     position: static;
     top: 65px;
     opacity: 1;
@@ -189,7 +189,7 @@ const NavLinks = styled.ul`
     visibility: visible;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -221,7 +221,7 @@ const Content = styled.div`
   justify-content: space-between;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     box-shadow: none;
     flex-direction: column;
     padding: 0 20px 0 20px;
@@ -237,7 +237,7 @@ const Row = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     width: 100%;
     margin-bottom: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -252,7 +252,7 @@ const Header = styled.div`
   color: #1f1f1f;
   font-size: 1.25rem;
   font-weight: 300;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     font-size: 1.188rem;
   }
 `;
@@ -280,7 +280,7 @@ const MegaLinks = styled.ul`
     color: #1f1f1f;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     border-left: 0px;
     padding-left: 15px;
     li {
@@ -297,7 +297,7 @@ const BtnCloseBtn = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     display: block;
   }
 `;
@@ -310,13 +310,13 @@ const MenuBtn = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     display: block;
   }
 `;
 
 const DesktopItem = styled.div`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     display: none;
   }
 `;
@@ -324,7 +324,7 @@ const DesktopItem = styled.div`
 const ImageWrapper = styled.div`
   width: 200px;
   height: 300px;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 810px) {
     display: none;
   }
 `;
@@ -350,7 +350,7 @@ export default function Navbar() {
       <Nav>
         <Wrapper>
           <div className='logo'>
-            <Link href='/'>Ljungbacken</Link>
+            <Link href='/'>Villa Ljungbacken</Link>
           </div>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
@@ -365,7 +365,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href='/om-oss' className='parentLink'>
-                Om Ljungbacken
+                Om Villa Ljungbacken
               </Link>
             </li>
             <li>

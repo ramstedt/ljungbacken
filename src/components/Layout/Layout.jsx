@@ -25,7 +25,7 @@ export default function Layout({ children }) {
   return (
     <Wrapper>
       <Head>
-        <title>Ljungbacken</title>
+        <title>Villa Ljungbacken</title>
         <link rel='icon' href='' />
         <meta name='description' content='' />
         <meta name='keywords' content='' />

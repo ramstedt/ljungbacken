@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from '@/src/components/Footer/Footer';
 import Hero from '../Hero/Hero';
+import favicon from '@/public/images/favicon.ico';
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ export default function Layout({ children }) {
     <Wrapper>
       <Head>
         <title>Villa Ljungbacken</title>
-        <link rel='icon' href='' />
+        <link rel='icon' href='/images/favicon.ico' />
         <meta name='description' content='' />
         <meta name='keywords' content='' />
         <meta name='robots' content='index, follow' />

@@ -5,6 +5,7 @@ import { CiMenuBurger } from 'react-icons/ci';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { client } from '@/sanity/lib/client';
+import Logo from '../_atoms/Logo/Logo';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -26,7 +27,7 @@ svg{
   color: #1f1f1f !important; 
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 855px) {
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -81,7 +82,7 @@ const Wrapper = styled.div`
 
 const MobileItem = styled.label`
   display: none;
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     display: block;
     color: #1f1f1f;
     font-size: 1.25rem;
@@ -122,7 +123,7 @@ const DropMenu = styled.ul`
     font-size: 0.8rem !important;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     align-items: flex-start;
     position: static;
     opacity: 1;
@@ -154,7 +155,7 @@ const MegaBox = styled.div`
   visibility: hidden;
   transition-delay: 0.2s;
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     position: static;
     top: 65px;
     opacity: 1;
@@ -189,7 +190,7 @@ const NavLinks = styled.ul`
     visibility: visible;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -221,7 +222,7 @@ const Content = styled.div`
   justify-content: space-between;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     box-shadow: none;
     flex-direction: column;
     padding: 0 20px 0 20px;
@@ -237,7 +238,7 @@ const Row = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     width: 100%;
     margin-bottom: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -252,7 +253,7 @@ const Header = styled.div`
   color: #1f1f1f;
   font-size: 1.25rem;
   font-weight: 300;
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     font-size: 1.188rem;
   }
 `;
@@ -280,7 +281,7 @@ const MegaLinks = styled.ul`
     color: #1f1f1f;
   }
 
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     border-left: 0px;
     padding-left: 15px;
     li {
@@ -297,7 +298,7 @@ const BtnCloseBtn = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     display: block;
   }
 `;
@@ -310,13 +311,13 @@ const MenuBtn = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     display: block;
   }
 `;
 
 const DesktopItem = styled.div`
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     display: none;
   }
 `;
@@ -324,7 +325,7 @@ const DesktopItem = styled.div`
 const ImageWrapper = styled.div`
   width: 200px;
   height: 300px;
-  @media screen and (max-width: 810px) {
+  @media screen and (max-width: 855px) {
     display: none;
   }
 `;
@@ -349,9 +350,7 @@ export default function Navbar() {
       <GlobalStyle />
       <Nav>
         <Wrapper>
-          <div className='logo'>
-            <Link href='/'>Villa Ljungbacken</Link>
-          </div>
+          <Logo />
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
           <NavLinks className='nav-links'>

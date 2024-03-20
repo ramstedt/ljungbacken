@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client';
+import Image from 'next/image';
+import Logo from '../_atoms/Logo/Logo';
 
 const Wrapper = styled.footer`
   margin-top: auto;
@@ -95,7 +97,7 @@ export default function Footer() {
     <>
       <Wrapper>
         <div className='logo'>
-          <Link href='/'>Villa Ljungbacken</Link>
+          <Logo />
         </div>
         {isLoading ? null : (
           <>

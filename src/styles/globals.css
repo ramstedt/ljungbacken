@@ -86,6 +86,13 @@ a:hover::after {
 
 .logo {
   max-width: fit-content;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.logo img {
+  margin-bottom: 0.3rem;
 }
 
 .logo a {
@@ -97,6 +104,7 @@ a:hover::after {
   font-family: 'Audrey-Normal';
   max-width: fit-content;
 }
+
 @media screen and (min-width: 1020px) {
   .logo a {
     font-size: 1.8rem;

@@ -41,12 +41,14 @@ const Wrapper = styled.footer`
 const ContactWrapper = styled.div`
   color: #fdfffb;
   text-align: center;
+  font-size: 0.7rem;
   div a {
     color: #fdfffb;
   }
 
   h3 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
   }
   div {
     margin-bottom: 0.5rem;
@@ -100,16 +102,16 @@ export default function Footer() {
             <ContactWrapper>
               <h3>Kontakta oss</h3>
               <div>
-                Telefon:{' '}
                 <Link href={`tel:${footer.phone}`}>{footer.phone}</Link>
               </div>
+              {footer.email && (
+                <div>
+                  <Link href={`mailto:${footer.email}`}>{footer.email}</Link>
+                </div>
+              )}
+              <div>{footer.address}</div>
+              {footer.directions && <div>Vägbeskrivning:</div>}
               <div>
-                Email:{' '}
-                <Link href={`mailto:${footer.email}`}>{footer.email}</Link>
-              </div>
-              <div>Adress: {footer.address}</div>
-              <div>
-                Connecta med oss:{' '}
                 <Link href={`${footer.instagram}`}>
                   <FaInstagram />
                 </Link>{' '}
@@ -122,7 +124,7 @@ export default function Footer() {
             <nav>
               <ul>
                 <li>
-                  <Link href=''>Hem</Link>
+                  <Link href='/'>Hem</Link>
                 </li>
                 <li>
                   <Link href='/om-oss'>Om Oss</Link>

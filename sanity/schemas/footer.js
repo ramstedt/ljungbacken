@@ -25,6 +25,11 @@ export const footer = {
       type: 'string',
     },
     {
+      name: 'directions',
+      title: 'Vägbeskrivning',
+      type: 'text',
+    },
+    {
       name: 'instagram',
       title: 'Instagram',
       type: 'string',

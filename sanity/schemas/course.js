@@ -42,7 +42,7 @@ export const course = {
     },
     {
       name: 'startDate',
-      title: 'Startdatum',
+      title: 'Datum och tid',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },

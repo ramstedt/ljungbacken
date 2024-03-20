@@ -114,9 +114,7 @@ export default function CoursePage() {
                 </small>
               </div>
               <div>
-                <small>
-                  Start: {selectedCourse && selectedCourse.startDate}
-                </small>
+                <small>När: {selectedCourse && selectedCourse.startDate}</small>
               </div>
               <div>
                 <small>

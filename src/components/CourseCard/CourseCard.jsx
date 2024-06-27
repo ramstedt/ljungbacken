@@ -60,7 +60,7 @@ export default function CourseCard({ name, image, alt, slug }) {
         ) : null}
       </ImageWrapper>
       <Text>
-        <h3>{slug ? <Link href={`kurser/${slug}`}>{name}</Link> : null}</h3>
+        <h3>{slug ? <Link href={slug}>{name}</Link> : null}</h3>
       </Text>
     </Wrapper>
   );

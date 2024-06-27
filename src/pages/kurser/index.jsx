@@ -37,7 +37,7 @@ export default function Courses() {
             <CourseCard
               key={key}
               name={course.name}
-              slug={course.slug.current}
+              slug={`/kurser/${course.slug.current}`}
               image={course.image && urlFor(course.image).url()}
               alt={course.image.alt}
             />

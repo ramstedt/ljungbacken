@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Wrapper = styled.button`
+const Wrapper = styled(Link)`
   width: 260px;
   height: 125px;
   display: grid;
@@ -43,24 +43,19 @@ const Text = styled.div`
     border-radius: 5%;
     background: #00000062;
     z-index: 100;
-  }
-  h3 a {
     color: #fdfffb;
   }
 `;
 export default function CourseCard({ name, image, alt, slug }) {
-  const handleClick = () => {
-    window.location.href = `kurser/${slug}`;
-  };
   return (
-    <Wrapper onClick={handleClick} className='noHover'>
+    <Wrapper href={slug}>
       <ImageWrapper>
         {image ? (
           <Image src={image} alt={alt} layout='fill' objectFit='cover' />
         ) : null}
       </ImageWrapper>
       <Text>
-        <h3>{slug ? <Link href={slug}>{name}</Link> : null}</h3>
+        <h3>{name}</h3>
       </Text>
     </Wrapper>
   );

@@ -104,7 +104,9 @@ export default function Footer() {
             <ContactWrapper>
               <h3>Kontakta oss</h3>
               <div>
-                <Link href={`tel:${footer.phone}`}>{footer.phone}</Link>
+                {/* <Link href={`tel:${footer.phone}`}> */}
+                {footer.phone}
+                {/* </Link> */}
               </div>
               {footer.email && (
                 <div>

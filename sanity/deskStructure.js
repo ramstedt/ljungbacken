@@ -131,6 +131,9 @@ export const myStructure = (S) =>
                         .icon(FaKey),
                     ])
                 ),
+              S.documentTypeListItem('extra')
+                .title('Sidor (tillägg)')
+                .icon(IoMdSchool),
             ])
         ),
     ]);

@@ -13,6 +13,7 @@ import { instructors } from './schemas/instruktorer';
 import { photos } from './schemas/photos';
 import { prices } from './schemas/prices';
 import { whatsIncluded } from './schemas/whatsIncluded';
+import { extra } from './schemas/extra';
 
 export const schema = {
   types: [
@@ -31,5 +32,6 @@ export const schema = {
     bookVenue,
     prices,
     footer,
+    extra,
   ],
 };

@@ -330,15 +330,25 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export default function Navbar() {
   const [courses, setCourses] = useState(null);
+  const [extras, setExtras] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    Promise.all([client.fetch(`*[_type == "course"]`)])
-      .then(([coursesData]) => {
+    Promise.all([
+      client.fetch(`*[_type == "course"]`),
+      client.fetch(`*[_type == "extra"]`),
+    ])
+      .then(([coursesData, extrasData]) => {
         setCourses(coursesData);
+        setExtras(extrasData);
         setLoading(false);
       })
       .catch((error) => {
@@ -349,8 +359,10 @@ export default function Navbar() {
     <>
       <GlobalStyle />
       <Nav>
-        <Wrapper>
+        <LogoWrapper>
           <Logo />
+        </LogoWrapper>
+        <Wrapper>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
           <NavLinks className='nav-links'>
@@ -466,6 +478,16 @@ export default function Navbar() {
                 </li>
               </DropMenu>
             </li>
+            {isLoading
+              ? null
+              : extras.map((extra, key) => {
+                  return (
+                    <li key={key}>
+                      <Link href={`${extra.slug.current}`}>{extra.title}</Link>
+                    </li>
+                  );
+                })}
+            {console.log(extras)}
           </NavLinks>
           <MenuBtn htmlFor='menu-btn' className='btn menu-btn'>
             <RxHamburgerMenu />

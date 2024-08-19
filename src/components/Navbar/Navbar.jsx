@@ -112,7 +112,7 @@ const DropMenu = styled.ul`
   top: 3rem;
 
   &.last {
-    right: 0;
+    /* right: 0; */
   }
   li a {
     position: relative;

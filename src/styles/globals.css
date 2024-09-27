@@ -158,13 +158,6 @@ a.disabled {
   color: rgb(118, 118, 118);
 }
 
-@mixin perfectCenter() {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 @keyframes rotateForever {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -179,8 +172,6 @@ img {
 }
 
 .thumbnail {
-  @include perfectCenter();
-
   width: 320px;
   height: 320px;
   border: 1px solid #cccccc;
@@ -188,8 +179,6 @@ img {
 
   &:before {
     content: '';
-    @include perfectCenter();
-
     width: 50px;
     height: 50px;
     border: 3px solid #ac4c2e;
@@ -198,7 +187,4 @@ img {
     z-index: -1;
     animation: rotateForever 1s infinite;
   }
-}
-div div div div div div div div div button {
-  display: none !important;
 }

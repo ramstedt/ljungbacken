@@ -14,7 +14,7 @@ const Wrapper = styled(motion.div)`
     gap: 2rem;
   }
   @media screen and (min-width: 1024px) {
-    grid-template-columns: repeat(4, 225px);
+    grid-template-columns: repeat(4, 260px);
   }
 `;
 

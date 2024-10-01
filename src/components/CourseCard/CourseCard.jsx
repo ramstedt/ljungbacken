@@ -21,10 +21,6 @@ const Wrapper = styled(Link)`
     }
   }
 
-  @media screen and (min-width: 425px) {
-    width: 225px;
-    height: 118px;
-  }
 `;
 
 const ImageWrapper = styled.div`

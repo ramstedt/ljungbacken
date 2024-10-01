@@ -23,7 +23,7 @@ const Wrapper = styled.footer`
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
   nav ul li {
     border-style: solid;
@@ -43,14 +43,14 @@ const Wrapper = styled.footer`
 const ContactWrapper = styled.div`
   color: #fdfffb;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   div a {
     color: #fdfffb;
   }
 
   h3 {
     margin-bottom: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   div {
     margin-bottom: 0.5rem;

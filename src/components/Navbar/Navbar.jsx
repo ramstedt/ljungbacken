@@ -86,7 +86,7 @@ const MobileItem = styled.label`
     display: block;
     color: #1f1f1f;
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
     padding-left: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -119,7 +119,7 @@ const DropMenu = styled.ul`
     display: inline-block;
     text-decoration: none;
     padding: 0 0 0 15px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.8rem !important;
   }
 
@@ -177,7 +177,7 @@ const NavLinks = styled.ul`
     color: #565759;
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     padding: 5px 15px;
     display: inline-block;
     position: relative;
@@ -252,7 +252,7 @@ const Row = styled.div`
 const Header = styled.div`
   color: #1f1f1f;
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
   @media screen and (max-width: 855px) {
     font-size: 1.188rem;
   }

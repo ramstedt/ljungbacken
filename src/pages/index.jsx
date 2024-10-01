@@ -52,11 +52,13 @@ export default function Home() {
   return (
     <Layout>
       {isLoading ? null : (
-        <>
+        <><div>
           <Header>
             <h1>{home.title}</h1>
           </Header>
           <SanityBlockContent blocks={home && home.text} />
+          </div>
+          <div>
           <Header>
             <h2>Kurskatalog</h2>
           </Header>
@@ -73,6 +75,8 @@ export default function Home() {
               );
             })}
           </CoursesWrapper>
+          </div>
+          <div>
           <Header>
             <h2>Instruktörer</h2>
           </Header>
@@ -90,6 +94,7 @@ export default function Home() {
               );
             })}
           </StaffWrapper>
+          </div>
         </>
       )}
     </Layout>

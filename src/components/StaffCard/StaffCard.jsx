@@ -1,10 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 const Wrapper = styled.a`
-  width: 200px;
-  height: 190px;
+  width: 300px;
+  height: 240px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -17,8 +16,8 @@ const Wrapper = styled.a`
 `;
 
 const ImageWrapper = styled.div`
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
@@ -38,7 +37,7 @@ const Details = styled.div`
     color: #645757;
   }
   div {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 `;
 export default function StaffCard({ image, alt, name, title, slug }) {

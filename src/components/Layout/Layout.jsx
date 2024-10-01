@@ -16,7 +16,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   margin: auto;
-  gap: 1rem;
+  gap: 2rem;
   padding: 0.5rem;
   width: 100%;
   max-width: 1024px;
